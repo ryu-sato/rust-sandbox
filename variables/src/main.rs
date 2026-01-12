@@ -1,7 +1,33 @@
+use std::io;
+
 fn main() {
-    let tup = (500, 6.4, 1);
+    let a = [1, 2, 3, 4, 5];
 
-    let (x, y, z) = tup;
+    // コンパイルエラー
+    // println!("The value of the element at index 10 is: {}", a[10]);
 
-    println!("The value of y is: {}", y);
+    println!("Please enter an array index.");
+           // 配列の何番目の要素にアクセスするか指定してください
+
+    let mut index = String::new();
+
+    io::stdin()
+        .read_line(&mut index)
+        .expect("Failed to read line");
+              // 値の読み込みに失敗しました
+
+    let index: usize = index
+        .trim()
+        .parse()
+        .expect("Index entered was not a number");
+              // 入力された値は数字ではありません
+
+    let element = a[index];
+
+    // 5以上になるとパニック
+    println!(
+        "The value of the element at index {} is: {}",
+        // {}番目の要素の値は{}です
+        index, element
+    );
 }
