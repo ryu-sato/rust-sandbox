@@ -4,6 +4,7 @@ fn main() {
 
     let x = 5;
     makes_copy(x);
+    println!("{}", x);
 }
 
 fn takes_ownership(some_string: String) {
